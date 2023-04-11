@@ -1,0 +1,59 @@
+<button class="btn btn-warning" style="float:right" (click)="logout()">
+    LogOut
+</button>
+<button class="btn btn-danger" style="float:right" (click)="dele()">
+    Delete
+</button>
+<h1>Welcome {{user}}</h1>
+<h4>SYSTEM DATE:{{sdate|date:'short'}}</h4>
+<a routerLink="/transaction">View Transaction History</a>
+<app-delete [item]='acno' (Oncancel)="oncancel()" (OnDelete)="onDelete($event)"></app-delete>
+<!-- date pipping -->
+
+<div class="parent" [ngClass]="acno?'style1':''">
+    <div class="child">
+        <div class="row">
+            <div class="text-center">
+                  <!-- <h1 class="mt-3 mb-3 text-primary">BANK SIGNUP</h1> -->
+            </div>
+            <div class=" bg-light mt-5">
+              <h3 class="text-dark">Deposit</h3>
+                <img src="../../assets/bank-vector-icon.jpg" width="100px" height="100px" class="rounded-circle mb-4 mt-3">
+                <form action="" [formGroup]="depForm">
+                    <input formControlName="acno" type="text" name="account"id="dep_acc" class="form-control mb-4 mt-3" placeholder="Enter Account No">
+                    <div style="color:red" *ngIf="this.depForm.get('acno')?.errors&&this.depForm.get('acno')?.touched">Invalid Account No</div>
+                    <input formControlName="pswd" type="text" name="password"id="dep_pswd" class="form-control mb-4" placeholder="Enter Password">
+                    <div style="color:red" *ngIf="this.depForm.get('pswd')?.errors&&this.depForm.get('pswd')?.touched">Invalid Password</div>
+                    <input formControlName="amount" type="text" name="amount"id="dep_amount" class="form-control mb-4 mt-3" placeholder="Enter amount">
+                    <div style="color:red" *ngIf="this.depForm.get('amount')?.errors&&this.depForm.get('amount')?.touched">Invalid Password</div>
+                    <button class="btn btn-info mb-3 w-50" (click)="deposit()">Deposit</button>
+                </form>
+
+                <!-- <a class="text-light" routerLink=""><p class="text-light ">Already have account?SignIn</p></a> -->
+            </div>
+            <div class="text-center"></div>
+        </div>
+    </div>
+    <div class="child">
+        <div class="row">
+            <div class="text-center"></div>
+            <div class="text-center bg-light mt-5">
+                <!-- <h1 class="mt-3 mb-3 text-primary">BANK SIGNUP</h1> -->
+                <h3 class="text-dark">Withdraw</h3>
+                <img src="../../assets/bank-vector-icon.jpg" width="100px" height="100px" class="rounded-circle mb-4 mt-3">
+                <form action="" [formGroup]="withForm">
+                    <input formControlName="acno1" type="text" name="account"id="with_acc" class="form-control mb-4 mt-3" placeholder="Enter Account No">
+                    <div style="color:red" *ngIf="this.withForm.get('acno1')?.errors&&this.withForm.get('acno1')?.touched">Invalid Account No</div>
+                    <input formControlName="pswd1" type="text" name="password"id="with_pswd" class="form-control mb-4" placeholder="Enter Password">
+                    <div style="color:red" *ngIf="this.withForm.get('pswd1')?.errors&&this.withForm.get('pswd1')?.touched">Invalid Password</div>
+                    <input formControlName="amount1" type="text" name="amount"id="with_amount" class="form-control mb-4 mt-3" placeholder="Enter amount">
+                    <div style="color:red" *ngIf="this.withForm.get('amount1')?.errors&&this.withForm.get('amount1')?.touched">Invalid amount</div>
+                    <button class="btn btn-info mb-3 w-50" (click)="withdraw()">Withdraw</button>
+                </form>
+
+                <!-- <a class="text-light" routerLink=""><p class="text-light ">Already have account?SignIn</p></a> -->
+            </div>
+            <div class="text-center"></div>
+        </div>
+    </div>
+</div>

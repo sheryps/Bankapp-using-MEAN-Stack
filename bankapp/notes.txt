@@ -1,0 +1,134 @@
+                                Angular
+
+                            Bankapp in angular
+
+                    Frontend:angular
+                    Backend:nodejs(express)
+                    database:Mongodb
+
+        Basic building blocks
+
+       1.Module - to import 3rd party libraries
+       2.Component - to create html css and ts files 
+
+
+
+         basic commands
+
+        1.create project -- ng new project_name
+        2.create a component -- ng g c component_name
+        3.run - ng serve --open
+
+        4.to render image -- images should be in assests ..so path is ../../assests/
+
+    1).Data Binding
+
+      to share data inside component
+
+      ts- component and html - view
+
+        1.One way data binding(ts->html or html->ts)
+
+          a).Component to view(ts->html)
+                a.1)String Interpolation - {{expression}} applied to element in html
+                a.2)Property Binding - [attribute_name]='property' applied to attribute in html
+          b).View to Component(html->ts) 
+          (change)
+                b.1)Event Binding - (event_name) ='function name'   
+                b.2)Event Binding using $event = (event_name) = 'function_name($event)' 
+                b.3)Event binding using template referencing variable = #variable_name
+
+        1.2).Two way bindingts->html and html->ts        
+        Data share in both directions
+
+        ngModel(library)  import from FormsModule
+
+        import ngModel from FormsModule
+        [(ngModel)]='variable_name' in html
+
+    2.Angular Routing
+    to set path for component
+      {
+        path:'',component:LoginComponent
+        //4200 path
+      },
+      {
+        path:'dashboard',component:DashboardComponent
+        //4200/dashboard -register
+      }  
+    use router outlet selector inside root component
+
+    3.)Dependancy Injection
+
+    To share data between two component
+    here we use constructor to acheive this
+
+    eg:privare router:Router in constructor
+    used to navigation and router
+    navigatebyurl('path_name')
+
+    routerlink to switch from html page..replaced for href
+
+    4).Angular Services
+
+    To hold reduntent data
+    create folder in src-app-services
+    to create services in angular -- ng g s service_name
+
+    provide database in services.ts
+
+
+
+
+    6).Angular Forms
+
+      a)template driven forms(designing of html page)
+      b)Model driven forms(ts file model,design ->html page)
+
+          -For Advanced Validation
+          a).Reactive Forms Module  
+              -group,array,controller
+              -import Reactive Forms modules  in app.module.ts
+                form values should be taken
+
+
+    7.)Local storage
+        1.)setitem()
+        2.)getitem()
+        3.)removeitem()
+
+
+    8.)Parent Child communciation
+
+        parent - DashboardComponent
+        child - Deletecomponent    
+
+        parent to child communication  - @input()
+        child to parent communication - @output()
+
+    9.)Angular Pipes
+
+    10.)Frontend and backend connection
+        HTTPClientModule -  app.module   
+        1.)Import httpclient module in app.module
+        2.)Inject httpclient module in DataService
+        3.)Using httpclient to make API calls
+    
+    11.)Asynchronous call - RxJs
+
+        RxJs - Reactive Extension for RxJs
+
+          Ts                               Js
+        OBSERVABLE                       PROMISE  
+        1)Resolve -subscribe()             then()
+        2)Reject -- catch()                 catch()
+
+   
+                
+
+
+
+
+            
+
+
